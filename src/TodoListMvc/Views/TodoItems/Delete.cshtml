@@ -1,0 +1,42 @@
+﻿@model TodoListMvc.Models.TodoItem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete todo item?</h1>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Title:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            Description:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            Date Modified:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateModified)
+        </dd>
+        <dt class = "col-sm-2">
+            Status:
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model?.IsDone == true ? "Complete" : " Incomplete")
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+    </form>
+</div>
