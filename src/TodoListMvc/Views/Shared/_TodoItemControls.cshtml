@@ -1,0 +1,29 @@
+﻿@model TodoListMvc.Models.TodoItem
+
+@if (Model != null)
+{
+    <div class="d-flex">
+        <div class="col">
+            <a asp-controller="TodoItems" asp-action="ToggleDone" asp-route-id="@Model.Id">
+                @if (Model.IsDone)
+                {
+                    <i class="far fa-check-square fa-2x"></i>
+                }
+                else
+                {
+                    <i class="far fa-square fa-2x"></i>
+                }
+            </a>
+        </div>
+        <div class="col">
+            <div class="float-end">
+                <a asp-controller="TodoItems" asp-action="Edit" class="btn btn-outline-primary btn-sm btn-block" asp-route-id="@Model.Id">
+                    <i class="fas fa-pen"></i>
+                </a>
+                <a asp-controller="TodoItems" asp-action="Delete" class="btn btn-outline-danger btn-sm btn-block" asp-route-id="@Model.Id">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TodoListMvc.Models.TodoItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model != null)
+{
+   <div class="card-group">
+        @foreach (var item in Model) {
+            <partial name="_TodoItemCard" model="item" />
+         }
+
+        <div style="padding: 3px 3px 3px 3px; min-width: 300px;">
+           <div class="card" style="border-radius: 0.2rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Create New</h5>
+                    <a asp-action="Create" class="btn btn-primary float-end">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+}
